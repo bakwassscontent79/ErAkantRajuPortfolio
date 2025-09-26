@@ -1,7 +1,7 @@
 // Typing Effect for Hero Section
 document.addEventListener('DOMContentLoaded', function() {
     const typedText = document.querySelector('.typed-text');
-    const textArray = ["Er. Akant Raju, B.O.E.", "Mechanical Engineer | 20+ Years in Boiler & Power Plant Operations"];
+    const textArray = ["Er. Akant Raju, B.O.E.", "Mechanical Engineer", " 20+ Years in Boiler & Power Plant"];
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 2000;
