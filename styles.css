@@ -156,6 +156,8 @@ p {
     margin-bottom: 1rem;
     font-weight: 700;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .typed-text {
@@ -180,6 +182,10 @@ p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: var(--light-grey);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 .hero-buttons {
@@ -238,10 +244,15 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.1);
     box-shadow: var(--box-shadow);
     animation: pulse 3s infinite;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @keyframes pulse {
@@ -692,6 +703,11 @@ p {
         font-size: 3rem;
     }
     
+    .hero-subtitle {
+        font-size: 1.3rem;
+        max-width: 600px;
+    }
+    
     .about-content {
         flex-direction: column;
     }
@@ -723,6 +739,7 @@ p {
     
     .hero-subtitle {
         font-size: 1.2rem;
+        max-width: 90%;
     }
     
     .stats {
@@ -751,6 +768,11 @@ p {
     
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        max-width: 100%;
     }
     
     .btn {
