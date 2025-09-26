@@ -173,6 +173,7 @@
                     <h3>BOE (Boiler Operation Engineer)</h3>
                     <p>Guwahati (2024)</p>
                     <div class="card-highlight">Recent Certification</div>
+                    <button class="btn btn-secondary view-certificate-btn" data-certificate="boe">View Certificate</button>
                 </div>
                 
                 <div class="education-card">
@@ -385,6 +386,24 @@
             </div>
         </div>
     </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="certificateTitle">Certificate</h2>
+            <div class="certificate-placeholder">
+                <img id="certificateImage" src="" alt="Certificate" style="display: none;">
+                <div id="certificatePlaceholderText">
+                    <i class="fas fa-certificate certificate-icon"></i>
+                    <p>Certificate will be displayed here</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="downloadCertificate" class="btn btn-primary" style="display: none;">Download</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

@@ -208,3 +208,68 @@ document.querySelectorAll('.social-link').forEach(link => {
         this.style.boxShadow = 'none';
     });
 });
+
+// Certificate Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get modal elements
+    const modal = document.getElementById('certificateModal');
+    const closeBtn = document.querySelector('.close');
+    const viewCertificateButtons = document.querySelectorAll('.view-certificate-btn');
+    
+    // Add click event to all "View Certificate" buttons
+    viewCertificateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const certificateType = this.getAttribute('data-certificate');
+            openCertificateModal(certificateType);
+        });
+    });
+    
+    // Close modal when close button is clicked
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Function to open certificate modal
+    function openCertificateModal(certificateType) {
+        const title = document.getElementById('certificateTitle');
+        const image = document.getElementById('certificateImage');
+        const placeholderText = document.getElementById('certificatePlaceholderText');
+        const downloadBtn = document.getElementById('downloadCertificate');
+        
+        // Reset elements
+        image.style.display = 'none';
+        placeholderText.style.display = 'block';
+        downloadBtn.style.display = 'none';
+        
+        // Set content based on certificate type
+        if (certificateType === 'boe') {
+            title.textContent = 'Boiler Operation Engineer (B.O.E.) Certificate';
+            // Display the actual certificate image
+            image.src = 'public/BOE.jpg';
+            image.alt = 'B.O.E. Certificate';
+            image.style.display = 'block';
+            placeholderText.style.display = 'none';
+            downloadBtn.style.display = 'inline-block';
+            
+            // Set up download functionality
+            downloadBtn.onclick = function() {
+                const link = document.createElement('a');
+                link.href = 'public/BOE.jpg';
+                link.download = 'BOE_Certificate_Akant_Raju.jpg';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+        }
+        
+        // Display the modal
+        modal.style.display = 'block';
+    }
+});
