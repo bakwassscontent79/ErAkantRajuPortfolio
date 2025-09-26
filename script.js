@@ -226,6 +226,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const certificateType = this.getAttribute('data-certificate');
             openCertificateModal(certificateType);
         });
+        
+        // Add touch support for mobile devices
+        button.addEventListener('touchstart', function() {
+            this.classList.add('btn-active');
+        });
+        
+        button.addEventListener('touchend', function() {
+            this.classList.remove('btn-active');
+        });
     });
     
     // Add click event to "View Now" button for resume
@@ -238,6 +247,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 resumePreview.style.display = 'none';
                 viewResumeBtn.textContent = 'View Now';
             }
+        });
+        
+        // Add touch support for mobile devices
+        viewResumeBtn.addEventListener('touchstart', function() {
+            this.classList.add('btn-active');
+        });
+        
+        viewResumeBtn.addEventListener('touchend', function() {
+            this.classList.remove('btn-active');
         });
     }
     
@@ -261,6 +279,15 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+    });
+    
+    // Add touch support for close button
+    closeBtn.addEventListener('touchstart', function() {
+        this.style.color = '#ff6b35';
+    });
+    
+    closeBtn.addEventListener('touchend', function() {
+        this.style.color = '';
     });
     
     // Function to open certificate modal
@@ -306,4 +333,58 @@ document.addEventListener('DOMContentLoaded', function() {
         modalContent = document.querySelector('.modal-content');
         modalContent.style.marginTop = '5%';
     }
+    
+    // Add smooth scrolling for mobile devices
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Detect if it's a mobile device
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - (isMobile ? 60 : 70),
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
+
+// Add touch support styles
+const touchStyles = `
+    .btn-active {
+        transform: translateY(-3px) scale(0.98);
+        box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        .btn:hover {
+            transform: none;
+        }
+        
+        .education-card:hover {
+            transform: none;
+        }
+        
+        .skill-item:hover {
+            transform: none;
+        }
+        
+        .language-item:hover {
+            transform: none;
+        }
+        
+        .social-link:hover {
+            transform: none;
+        }
+    }
+`;
+
+const touchStyleSheet = document.createElement('style');
+touchStyleSheet.innerText = touchStyles;
+document.head.appendChild(touchStyleSheet);

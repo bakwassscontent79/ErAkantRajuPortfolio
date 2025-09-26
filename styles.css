@@ -972,4 +972,144 @@ p {
         height: 40px;
         font-size: 1rem;
     }
+    
+    .resume-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    #certificateImage {
+        max-height: 50vh;
+    }
+    
+    .certificate-placeholder {
+        min-height: 250px;
+    }
+    
+    .certificate-icon {
+        font-size: 3rem;
+    }
+    
+    .close {
+        font-size: 24px;
+        right: 15px;
+        top: 10px;
+    }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .stats {
+        gap: 15px;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .languages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding: 0 10px 0 40px;
+    }
+    
+    .experience::before {
+        left: 10px;
+    }
+    
+    .timeline-icon {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    #certificateTitle {
+        font-size: 1.5rem;
+    }
+    
+    .certificate-placeholder {
+        min-height: 200px;
+        margin: 15px 0;
+    }
+    
+    .certificate-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .certificate-placeholder p {
+        font-size: 1rem;
+    }
+}
+
+/* Small height devices (landscape mobile) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 50px 0;
+    }
+    
+    .hero-content {
+        padding: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
