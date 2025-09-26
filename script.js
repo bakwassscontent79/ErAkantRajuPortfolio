@@ -216,6 +216,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.querySelector('.close');
     const viewCertificateButtons = document.querySelectorAll('.view-certificate-btn');
     
+    // Get resume elements
+    const viewResumeBtn = document.getElementById('viewResumeBtn');
+    const resumePreview = document.getElementById('resumePreview');
+    
     // Add click event to all "View Certificate" buttons
     viewCertificateButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -224,15 +228,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Add click event to "View Now" button for resume
+    if (viewResumeBtn) {
+        viewResumeBtn.addEventListener('click', function() {
+            if (resumePreview.style.display === 'none' || resumePreview.style.display === '') {
+                resumePreview.style.display = 'block';
+                viewResumeBtn.textContent = 'Hide Resume';
+            } else {
+                resumePreview.style.display = 'none';
+                viewResumeBtn.textContent = 'View Now';
+            }
+        });
+    }
+    
     // Close modal when close button is clicked
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     });
     
     // Close modal when clicking outside the modal content
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Close modal with Escape key
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     });
     
@@ -247,6 +274,9 @@ document.addEventListener('DOMContentLoaded', function() {
         image.style.display = 'none';
         placeholderText.style.display = 'block';
         downloadBtn.style.display = 'none';
+        
+        // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
         
         // Set content based on certificate type
         if (certificateType === 'boe') {
@@ -271,5 +301,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Display the modal
         modal.style.display = 'block';
+        
+        // Center the modal vertically
+        modalContent = document.querySelector('.modal-content');
+        modalContent.style.marginTop = '5%';
     }
 });
